@@ -1,6 +1,7 @@
 import pytest
 
 from algebra import matrix_addition, matrix_subtraction, matrix_transpose, matrix_multiplication, scalar_multiplication
+from misc_math import column
 
 matrix_A = [
     [1, 2, 3],
@@ -33,7 +34,13 @@ def test_matrix_subtraction_1():
     assert matrix_subtraction(matrix_A, matrix_B) == diff_matrix
 
 def test_matrix_multiplication_1():
-    pass
+    mult_matrix = [
+        [30, 24, 18],
+        [84, 69, 54],
+        [138, 114, 90]
+    ]
+
+    assert matrix_multiplication(matrix_A, matrix_B) == mult_matrix
 
 def test_matrix_transpose_1():
     trans_matrix = [

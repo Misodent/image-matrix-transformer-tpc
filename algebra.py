@@ -1,3 +1,5 @@
+from misc_math import dot_product, column
+
 def matrix_addition(A, B):
     """Adds two matrices of the same dimensions elementwise"""
     
@@ -24,7 +26,26 @@ def matrix_subtraction(A, B):
 
 def matrix_multiplication(A, B):
     """Returns matrix multiplication of matrix A with matrix B"""
-    pass
+
+    # Multiplied matrix will have dimensions of the smallest row and column length of the inputs
+    min_column_length = min(len(A), len(B))
+    min_row_length = min(len(A[0]), len(B[0]))
+    
+    # Initialise empty matrix to aforementioned dimensions
+    mult_matrix = [
+        [0 for i in range(min_row_length)]
+        for i in range(min_column_length)
+    ]
+
+    for i_row, row in enumerate(A):
+        for i_element, element in enumerate(B[i_row]):
+            col = column(B, i_element)
+            dot_prod = dot_product(row, col)
+
+            mult_matrix[i_row][i_element] = dot_prod
+            
+    return mult_matrix
+
 
 def matrix_transpose(A):
     """Transposes matrix A"""
