@@ -1,5 +1,3 @@
-# linear algebra functions
-
 def matrix_addition(A, B):
     """Adds two matrices of the same dimensions elementwise"""
     
@@ -25,7 +23,7 @@ def matrix_subtraction(A, B):
 
 
 def matrix_multiplication(A, B):
-    """Returns cross product of matrix A with matrix B"""
+    """Returns matrix multiplication of matrix A with matrix B"""
     pass
 
 def matrix_transpose(A):
