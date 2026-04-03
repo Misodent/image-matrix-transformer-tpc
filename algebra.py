@@ -3,6 +3,9 @@ from misc_math import dot_product, column
 def matrix_addition(A, B):
     """Adds two matrices of the same dimensions elementwise"""
     
+    if (len(A) != len(B) or len(A[0]) != len(B[0])):
+        raise ValueError("Matrix dimensions must match")
+    
     # Zip each row and add corresponding elements
     sum_matrix = [
         [a + b for a, b in zip(row_A, row_B)] 
