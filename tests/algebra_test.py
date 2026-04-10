@@ -15,11 +15,22 @@ matrix_B = [
     [3, 2, 1]
 ]
 
-matrix_C = [
+matrix_4x3 = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [10, 11, 12]
+]
+
+matrix_3x2 = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+]
+
+matrix_2x3 = [
+    [1, 2, 3],
+    [4, 5, 6]
 ]
 
 def test_matrix_addition_1():
@@ -31,11 +42,11 @@ def test_matrix_addition_1():
 
     assert matrix_addition(matrix_A, matrix_B) == sum_matrix
 
-def test_matrix_addition_2():
+def test_matrix_addition_invalid_dimensions():
     test_passed = False
     
     try:
-        matrix_addition(matrix_A, matrix_C)
+        matrix_addition(matrix_A, matrix_4x3)
     except ValueError:
         test_passed = True
 
@@ -50,6 +61,17 @@ def test_matrix_subtraction_1():
 
     assert matrix_subtraction(matrix_A, matrix_B) == diff_matrix
 
+def test_matrix_substraction_invalid_dimensions():
+    test_passed = False
+
+    try:
+        matrix_subtraction(matrix_A, matrix_4x3)
+    except ValueError:
+        test_passed = True
+
+    assert test_passed
+
+
 def test_matrix_multiplication_1():
     mult_matrix = [
         [30, 24, 18],
@@ -58,6 +80,46 @@ def test_matrix_multiplication_1():
     ]
 
     assert matrix_multiplication(matrix_A, matrix_B) == mult_matrix
+
+def test_matrix_multiplication_invalid_dimensions_1():
+    test_passed = False
+
+    try:
+        matrix_multiplication(matrix_2x3, matrix_4x3)
+    except ValueError:
+        test_passed = True
+    
+    assert test_passed
+
+def test_matrix_multiplication_invalid_dimensions_2():
+    test_passed = False
+
+    try:
+        matrix_multiplication(matrix_3x2, matrix_4x3)
+    except ValueError:
+        test_passed = True
+    
+    assert test_passed
+
+def test_matrix_multiplication_invalid_dimensions_3():
+    test_passed = False
+
+    try:
+        matrix_multiplication(matrix_3x2, matrix_A)
+    except ValueError:
+        test_passed = True
+    
+    assert test_passed
+
+def test_matrix_multiplication_invalid_dimensions_4():
+    test_passed = False
+
+    try:
+        matrix_multiplication(matrix_A, matrix_4x3)
+    except ValueError:
+        test_passed = True
+    
+    assert test_passed
 
 def test_matrix_transpose_1():
     trans_matrix = [
