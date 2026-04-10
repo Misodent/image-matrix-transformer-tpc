@@ -18,6 +18,9 @@ def matrix_addition(A, B):
 def matrix_subtraction(A, B):
     """Subtracts matrix B from matrix A elementwise"""
 
+    if (len(A) != len(B) or len(A[0]) != len(B[0])):
+        raise ValueError("Matrix dimensions must match")
+
     # Zip each row and subtract corresponding elements
     diff_matrix = [
         [a - b for a, b in zip(row_A, row_B)] 
@@ -29,6 +32,9 @@ def matrix_subtraction(A, B):
 
 def matrix_multiplication(A, B):
     """Returns matrix multiplication of matrix A with matrix B"""
+
+    if (len(A[0]) != len(B)):
+        raise ValueError("The number of collums in one matrix must match the number of rows in the other one")
 
     # Multiplied matrix will have dimensions of the smallest row and column length of the inputs
     min_column_length = min(len(A), len(B))
