@@ -15,6 +15,13 @@ matrix_B = [
     [3, 2, 1]
 ]
 
+matrix_C = [
+    [12, 11, 10],
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
 matrix_4x3 = [
     [1, 2, 3],
     [4, 5, 6],
@@ -42,6 +49,16 @@ def test_matrix_addition_1():
 
     assert matrix_addition(matrix_A, matrix_B) == sum_matrix
 
+def test_matrix_addition_2():
+    sum_matrix = [
+        [13, 13, 13],
+        [13, 13, 13],
+        [13, 13, 13],
+        [13, 13, 13]
+    ]
+
+    assert matrix_addition(matrix_C, matrix_4x3) == sum_matrix
+
 def test_matrix_addition_invalid_dimensions():
     test_passed = False
     
@@ -60,6 +77,16 @@ def test_matrix_subtraction_1():
     ]
 
     assert matrix_subtraction(matrix_A, matrix_B) == diff_matrix
+
+def test_matrix_subtraction_2():
+    diff_matrix = [
+        [-11, -9, -7],
+        [-5, -3, -1],
+        [1, 3, 5],
+        [7, 9, 11]
+    ]
+
+    assert matrix_subtraction(matrix_4x3, matrix_C) == diff_matrix
 
 def test_matrix_substraction_invalid_dimensions():
     test_passed = False
@@ -80,6 +107,16 @@ def test_matrix_multiplication_1():
     ]
 
     assert matrix_multiplication(matrix_A, matrix_B) == mult_matrix
+
+def test_matrix_multiplication_2():
+    mult_matrix = [
+        [22, 28],
+        [49, 64],
+        [76, 100],
+        [103, 136]
+    ]
+
+    assert matrix_multiplication(matrix_4x3, matrix_3x2) == mult_matrix
 
 def test_matrix_multiplication_invalid_dimensions_1():
     test_passed = False
@@ -130,6 +167,16 @@ def test_matrix_transpose_1():
 
     assert matrix_transpose(matrix_A) == trans_matrix
 
+def test_matrix_transpose_2():
+    trans_matrix = [
+        [12, 9, 6, 3],
+        [11, 8, 5, 2],
+        [10, 7, 4, 1],
+    ]
+
+    assert matrix_transpose(matrix_C) == trans_matrix
+
+
 def test_scalar_multiplication_1():
     prod_matrix = [
         [2, 4, 6],
@@ -138,3 +185,13 @@ def test_scalar_multiplication_1():
     ]
 
     assert scalar_multiplication(matrix_A, 2) == prod_matrix
+
+def test_scalar_multiplication_2():
+    prod_matrix = [
+        [24, 22, 20],
+        [18, 16, 14],
+        [12, 10, 8],
+        [6, 4, 2]
+    ]
+
+    assert scalar_multiplication(matrix_C, 2) == prod_matrix
