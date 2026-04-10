@@ -13,3 +13,6 @@ def column(matrix, i):
         column.append(row[i])
 
     return column
+
+def avg_luminosity(r, g, b):
+        return round(0.3 * r + 0.59 * g + 0.11 * b)
