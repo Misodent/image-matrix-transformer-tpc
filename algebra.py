@@ -40,7 +40,7 @@ def matrix_multiplication(A, B):
     # Dot product of row and column for each resulting element
     return [
         [dot_product(row, column(B, j)) for j in range(len(B[0]))]
-        for i, row in enumerate(A)
+        for row in A
     ]
 
 
