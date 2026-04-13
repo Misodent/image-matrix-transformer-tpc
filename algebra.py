@@ -49,11 +49,12 @@ def matrix_transpose(A):
 
     # Swap the row and column indices for each element
     trans_matrix = [
-        [A[j][i] for j, a in enumerate(row)]
-        for i, row in enumerate(A)
+        [A[j][i] for j in range(len(A))]
+        for i in range(len(A[0]))
     ]
 
     return trans_matrix
+
 
 def scalar_multiplication(A, k):
     """Multiplies every value of matrix A by value k"""
